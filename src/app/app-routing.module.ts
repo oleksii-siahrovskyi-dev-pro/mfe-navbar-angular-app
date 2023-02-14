@@ -1,13 +1,15 @@
+import { APP_BASE_HREF } from "@angular/common";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavBarComponent } from "./nav-bar/nav-bar.component";
+import { EmptyRouteComponent } from './empty-route/empty-route.component';
 
 const routes: Routes = [
-  { path: '**', component: NavBarComponent }
+  { path: '**', component: EmptyRouteComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' },]
 })
 export class AppRoutingModule { }
